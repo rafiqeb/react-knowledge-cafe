@@ -14,10 +14,13 @@ const Header = () => {
         setBookmarks(newBookmarks)
     }
 
-    const handleMarkAsRead = (time)=> {
+    const handleMarkAsRead = (time, id)=> {
         const newReadingTime = readingTime + time
         setReadingTime(newReadingTime)
+        const reamainingBookmarks = bookmarks.filter(bookmark => bookmark.id !== id)
+        setBookmarks(reamainingBookmarks)
     }
+    
     return (
         <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center border-b-2 mb-10 mt-4">
